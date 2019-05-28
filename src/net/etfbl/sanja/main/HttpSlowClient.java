@@ -12,7 +12,7 @@ public class HttpSlowClient implements Runnable{
 	@Override
 	public void run() {
 		try {
-			Socket s = new Socket(InetAddress.getByName("localhost"), 8080);
+			Socket s = new Socket(InetAddress.getByName("localhost"), 3333);
 			PrintWriter pw = new PrintWriter(s.getOutputStream());
 			pw.print("GET /SigurnostSafe/randomNumbers.jsp HTTP/1.1\r\n");
 			//TimeUnit.SECONDS.sleep(10);
@@ -28,12 +28,15 @@ public class HttpSlowClient implements Runnable{
 			pw.flush();
 			BufferedReader br = new BufferedReader(new InputStreamReader(s.getInputStream()));
 			String t;
-			while((t = br.readLine()) != null) {} //System.out.println(t);
-			br.close();
+			while((t = br.readLine()) != null) {
+				System.out.println(t);
+			} 
 			System.out.println("Connected.");
+			br.close();
+			pw.close();
 			s.close();
 		} catch (Exception e) {
-			//e.printStackTrace();
+			e.printStackTrace();
 		}
 	}
 
