@@ -14,7 +14,7 @@ public class HttpSlowClient implements Runnable{
 		try {
 			Socket s = new Socket(InetAddress.getByName("localhost"), 3333);
 			PrintWriter pw = new PrintWriter(s.getOutputStream());
-			pw.print("GET /SigurnostSafe/randomNumbers.jsp HTTP/1.1\r\n");
+			pw.print("GET /SigurnostSafe/SlowServlet HTTP/1.1\r\n");
 			//TimeUnit.SECONDS.sleep(10);
 			pw.print("Host: localhost:8080\r\n");
 			//TimeUnit.SECONDS.sleep(10);
