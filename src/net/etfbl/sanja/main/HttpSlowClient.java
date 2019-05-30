@@ -22,7 +22,7 @@ public class HttpSlowClient implements Runnable{
 			//TimeUnit.SECONDS.sleep(10);
 			pw.print("Accept-Language: en-US,en;q=0.9\r\n");
 			//TimeUnit.SECONDS.sleep(10);
-			pw.print("Connection: keep-alive\r\n");
+			pw.print("Connection: close\r\n");
 			//TimeUnit.SECONDS.sleep(10);
 			pw.print("\r\n");
 			pw.flush();
