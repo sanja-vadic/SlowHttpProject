@@ -15,28 +15,28 @@ public class HttpSlowClient implements Runnable{
 			Socket s = new Socket(InetAddress.getByName("localhost"), 3333);
 			PrintWriter pw = new PrintWriter(s.getOutputStream());
 			pw.print("GET /SigurnostSafe/SlowServlet HTTP/1.1\r\n");
-			TimeUnit.SECONDS.sleep(10);
+//			TimeUnit.SECONDS.sleep(3);
 			pw.print("Host: localhost:8080\r\n");
-			TimeUnit.SECONDS.sleep(10);
+		//	TimeUnit.SECONDS.sleep(3);
 			pw.print("Accept-Encoding: gzip, deflate, br\r\n");
-			TimeUnit.SECONDS.sleep(10);
+		//	TimeUnit.SECONDS.sleep(3);
 			pw.print("Accept-Language: en-US,en;q=0.9\r\n");
-			//TimeUnit.SECONDS.sleep(10);
+		//	TimeUnit.SECONDS.sleep(3);
 			pw.print("Connection: close\r\n");
-			//TimeUnit.SECONDS.sleep(10);
+		//	TimeUnit.SECONDS.sleep(3);
 			pw.print("\r\n");
 			pw.flush();
 			BufferedReader br = new BufferedReader(new InputStreamReader(s.getInputStream()));
 			String t;
 			while((t = br.readLine()) != null) {
-				System.out.println(t);
+				//System.out.println(t);
 			} 
 			System.out.println("Connected.");
 			br.close();
 			pw.close();
 			s.close();
 		} catch (Exception e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 	}
 
